@@ -147,10 +147,12 @@
     .nav-hamburger.open span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
+
     .nav-hamburger.open span:nth-child(2) {
       opacity: 0;
       transform: scaleX(0);
     }
+
     .nav-hamburger.open span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
@@ -202,7 +204,8 @@
       transition: color 0.2s;
     }
 
-    .nav-drawer a:hover, .nav-drawer a:active {
+    .nav-drawer a:hover,
+    .nav-drawer a:active {
       color: var(--accent);
     }
 
@@ -1101,6 +1104,16 @@
       gap: 24px;
     }
 
+    .projects-row2 {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 66.666%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
     .project-card {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -1223,14 +1236,21 @@
       color: var(--accent);
       text-decoration: none;
       letter-spacing: 0.08em;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: opacity 0.2s;
+      padding: 6px 14px;
+      border: 1px solid rgba(0, 255, 163, 0.4);
+      border-radius: 3px;
+      background: rgba(0, 255, 163, 0.04);
+      transition: all 0.2s;
     }
 
     .project-link:hover {
-      opacity: 0.7;
+      background: rgba(0, 255, 163, 0.12);
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(0, 255, 163, 0.2);
+      transform: translateY(-1px);
     }
 
     /* EDUCATION — centered single block */
@@ -1606,7 +1626,8 @@
         padding: 16px 24px;
       }
 
-      .nav-links, .nav-cta {
+      .nav-links,
+      .nav-cta {
         display: none;
       }
 
@@ -1644,6 +1665,11 @@
 
       .skills-container,
       .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-row2 {
+        max-width: 100%;
         grid-template-columns: 1fr;
       }
 
@@ -1724,7 +1750,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>VIEW PROJECTS
         </a>
-        <a href="Resume วรากรณ์  ศรีปาล.pdf" download="CV_Warakorn.pdf" class="btn-secondary" onclick="downloadCV()">
+        <a href="Resume วรากรณ์  ศรีปาล.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary"
+          onclick="downloadCV(event)">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -1780,10 +1807,15 @@
       <div class="about-text fade-up">
         <p>ผมเป็นนักศึกษาชั้นปีที่ 3 สาขา<strong>เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</strong>
           ที่มีความชอบในการพัฒนาซอฟต์แวร์</p>
-        <p>มีประสบการณ์ด้าน <strong>Web Development</strong> ทั้ง Front-end และ Back-end
-        </p>
-        <p>ผมเป็นคนชอบเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอ สนุกกับการแก้ปัญหาและสร้างสรรค์ผลงานที่ใช้งานได้จริง
-          มีความรับผิดชอบ ทำงานร่วมกับผู้อื่นได้ดี และพร้อมที่จะเปิดรับคำแนะนำเพื่อพัฒนาตัวเองอย่างต่อเนื่อง</p>
+        <p>ผมมีพื้นฐานด้าน <strong>Web Development</strong> ครอบคลุมทั้ง <strong>Front-end</strong> และ <strong>Back-end</strong>
+          พร้อมทักษะในการพัฒนาโปรแกรมและการคิดวิเคราะห์เชิงระบบ
+          สามารถออกแบบและพัฒนาโซลูชันที่ตอบโจทย์การใช้งานได้อย่างมีประสิทธิภาพ</p>
+
+        <p>ผมมีความมุ่งมั่นในการเรียนรู้เทคโนโลยีใหม่ ๆ อยู่เสมอ และสามารถนำความรู้มาประยุกต์ใช้กับงานจริง
+          เพื่อสนับสนุนการพัฒนาองค์กรและสร้างผลงานที่มีคุณภาพ</p>  
+
+        <p>นอกจากนี้ ผมเป็นผู้ที่มีความรับผิดชอบ สามารถทำงานร่วมกับผู้อื่นได้ดี
+          พร้อมเปิดรับคำแนะนำและพัฒนาตนเองอย่างต่อเนื่อง เพื่อเติบโตในสายงานด้านเทคโนโลยีสารสนเทศ</p>
       </div>
       <div class="about-stats fade-up">
         <div class="stat-card">
@@ -1838,16 +1870,7 @@
               <div class="skill-dot empty-green"></div>
             </div>
           </div>
-          <div class="skill-level-item">
-            <span class="skill-level-name">React</span>
-            <div class="skill-dots">
-              <div class="skill-dot filled-green"></div>
-              <div class="skill-dot empty-green"></div>
-              <div class="skill-dot empty-green"></div>
-              <div class="skill-dot empty-green"></div>
-              <div class="skill-dot empty-green"></div>
-            </div>
-          </div>
+
         </div>
       </div>
       <div class="skill-group fade-up">
@@ -1936,6 +1959,7 @@
     <div class="section-label">Projects</div>
     <h2 class="section-title">ผลงาน &amp;<br /><em>โปรเจกต์</em></h2>
     <div class="projects-grid">
+      <!-- Row 1: 3 cards -->
       <div class="project-card fade-up" onclick="openModal('p1')">
         <div class="project-preview preview-1">
           <div class="preview-grid-overlay"></div><img src="nexcore.png" alt="WEB APPLICATION"
@@ -1944,10 +1968,10 @@
         <div class="project-content">
           <div class="project-type">// WEB APPLICATION</div>
           <div class="project-name">Smart E-Commerce Platform</div>
-          <p class="project-desc">ระบบร้านค้าออนไลน์ครบวงจร พร้อมระบบจัดการสินค้า คำสั่งซื้อ
-            วิเคราะห์ยอดขาย Real-time</p>
-          <div class="project-stack"><span class="stack-tag"><strong>HTML/CSS/JS</strong></span><span
-              class="stack-tag">Google Apps Script</span><span class="stack-tag">Google Sheets DB</span></div>
+          <p class="project-desc">ระบบร้านค้าออนไลน์ครบวงจร พร้อมระบบจัดการสินค้า คำสั่งซื้อ วิเคราะห์ยอดขาย Real-time
+          </p>
+          <div class="project-stack"><span class="stack-tag">HTML/CSS/JS</span><span class="stack-tag">Google Apps
+              Script</span><span class="stack-tag">Google Sheets DB</span></div>
           <div class="project-links"><a
               href="https://script.google.com/macros/s/AKfycbxZxuLGvBG4lGLZ1PhJrQHuQ6BIdAOOV6mvejl8TDoxFHu-jHA5Ds-zQ8_85j5e5imaXw/exec"
               target="_blank" class="project-link" onclick="event.stopPropagation()">↗ Live Demo</a></div>
@@ -1962,14 +1986,12 @@
           <div class="project-type">// WEB APPLICATION</div>
           <div class="project-name">SocialAnalytics: Dashboard วิเคราะห์ยอดขาย</div>
           <p class="project-desc">พัฒนาระบบ Web App Dashboard สำหรับร้านค้าออนไลน์ เพื่อสรุปข้อมูลภาพรวมยอดขายรวม
-            จำนวนออเดอร์ และวิเคราะห์สัดส่วนยอดขายตามช่องทางโซเชียลมีเดียต่างๆ
-            Server</p>
+            จำนวนออเดอร์ และวิเคราะห์สัดส่วนยอดขายตามช่องทางโซเชียลมีเดียต่างๆ</p>
           <div class="project-stack"><span class="stack-tag">HTML/CSS/JS</span><span class="stack-tag">Google Apps
               Script</span></div>
           <div class="project-links"><a
               href="https://script.google.com/macros/s/AKfycbwDIPLPbB6_w7aJUD2FGRkbkrZO7CrZwin4hnAcjp7XI93s6gRj7_QyNFv9PuJHR0Td/exec"
-              target="_blank" class="project-link" onclick="event.stopPropagation()">↗ Live Demo</a>
-          </div>
+              target="_blank" class="project-link" onclick="event.stopPropagation()">↗ Live Demo</a></div>
         </div>
       </div>
       <div class="project-card fade-up" onclick="openModal('p3')">
@@ -1981,88 +2003,76 @@
           <div class="project-type">// n8n</div>
           <div class="project-name">Auto Post to Instagram using n8n</div>
           <p class="project-desc">ระบบโพสต์ Instagram อัตโนมัติด้วย n8n รองรับการตั้งเวลาและ Workflow Automation</p>
-          <div class="project-stack"><span class="stack-tag">n8n</span><span class="stack-tag">Instagram API</span></div>
+          <div class="project-stack"><span class="stack-tag">n8n</span><span class="stack-tag">Instagram API</span>
+          </div>
           <div class="project-links"><a
-               href= "https://drive.google.com/file/d/1WADTvo4VKRxRBg9J3XrpDJWe5W_grPJL/view?usp=sharing"target="_blank" class="project-link" onclick="event.stopPropagation()">ดูรายละเอียด</a></div>
+              href="https://drive.google.com/file/d/1WADTvo4VKRxRBg9J3XrpDJWe5W_grPJL/view?usp=sharing" target="_blank"
+              class="project-link" onclick="event.stopPropagation()">ดูรายละเอียด</a></div>
         </div>
       </div>
-      <div class="project-card fade-up" onclick="openModal('p4')">
-        <div class="project-preview preview-1">
-          <div class="preview-grid-overlay"></div><span class="preview-icon">🤖</span>
-        </div>
-        <div class="project-content">
-          <div class="project-type">// IoT PROJECT</div>
-          <div class="project-name">Smart Home Controller</div>
-          <p class="project-desc">ระบบควบคุมอุปกรณ์ภายในบ้านผ่าน Web Interface ด้วย Arduino และ ESP8266 พร้อมแสดงข้อมูล
-            Sensor แบบ Real-time</p>
-          <div class="project-stack"><span class="stack-tag">Arduino</span><span class="stack-tag">ESP8266</span><span
-              class="stack-tag">HTML/CSS/JS</span><span class="stack-tag">MQTT</span></div>
-          <div class="project-links"><a href="#" class="project-link" onclick="event.stopPropagation()">⬡ GitHub</a>
+      <!-- Row 2: 2 cards centered -->
+      <div class="projects-row2">
+        <div class="project-card fade-up project-card-wide" onclick="openModal('p4')">
+          <div class="project-preview preview-1">
+            <div class="preview-grid-overlay"></div>
+            <img src="flutter.png" alt="Mobile App" class="project-img-render">
+          </div>
+          <div class="project-content">
+            <div class="project-type">// MOBILE APP</div>
+            <div class="project-name">Mobile App Development (Flutter)</div>
+            <p class="project-desc">พัฒนาแอปพลิเคชันมือถือด้วย Flutter ออกแบบตามระบบ User Interface (UI)
+              และประสบการณ์ผู้ใช้งาน (UX) ให้ใช้งานง่ายและมีประสิทธิภาพ</p>
+            <div class="project-stack"><span class="stack-tag">Android Studio</span><span class="stack-tag">Dart</span>
+            </div>
+            <div class="project-links"><a href="https://drive.google.com/file/d/1PLKf9GTcjL3s06EN7D4Zlp1vyxoDi7YZ/view"
+                class="project-link" onclick="event.stopPropagation()">ดูรายละเอียด</a></div>
           </div>
         </div>
-      </div>
-      <div class="project-card fade-up" onclick="openModal('p5')">
-        <div class="project-preview preview-1">
-          <div class="preview-grid-overlay"></div><img src="mobileapp.png" alt="UI/UX DESIGN"
-            class="project-img-render">
+        <div class="project-card fade-up project-card-wide" onclick="openModal('p5')">
+          <div class="project-preview preview-1">
+            <div class="preview-grid-overlay"></div>
+            <img src="mobileapp.png" alt="UI/UX DESIGN" class="project-img-render">
+          </div>
+          <div class="project-content">
+            <div class="project-type">// UI/UX DESIGN</div>
+            <div class="project-name">UI/UX Design: ระบบจองและยืมหนังสือ</div>
+            <p class="project-desc">ออกแบบ UI/UX แอปพลิเคชันมือถือด้านจองและยืมหนังสือ Prototype ที่ใช้งานได้จริงใน
+              Figma</p>
+            <div class="project-stack"><span class="stack-tag">Figma</span><span class="stack-tag">UI/UX</span><span
+                class="stack-tag">Prototyping</span></div>
+            <div class="project-links"><a
+                href="https://www.figma.com/proto/cAa2Bs8MKKivmoNps9KKeK/%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%A2%E0%B8%B7%E0%B8%A1%E0%B8%88%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94?node-id=17-499&t=OTUQGjQj3NttO0ix-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=17%3A184"
+                target="_blank" class="project-link" onclick="event.stopPropagation()">↗ Figma Prototype</a></div>
+          </div>
         </div>
-        <div class="project-content">
-          <div class="project-type">// UI/UX DESIGN</div>
-          <div class="project-name">UI/UX Design: ระบบจองและยืมหนังสือ</div>
-          <p class="project-desc">ออกแบบ UI/UX แอปพลิเคชันมือถือด้านจองและยืมหนังสือ Prototype ที่ใช้งานได้จริงใน
-            Figma</p>
-          <div class="project-stack"><span class="stack-tag">Figma</span><span class="stack-tag">UI/UX</span><span
-              class="stack-tag">Prototyping</span></div>
-          <div class="project-links"><a
-              href="https://www.figma.com/proto/cAa2Bs8MKKivmoNps9KKeK/%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%A2%E0%B8%B7%E0%B8%A1%E0%B8%88%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94?node-id=17-499&t=OTUQGjQj3NttO0ix-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=17%3A184"target="_blank"
-              class="project-link" onclick="event.stopPropagation()">↗ Figma Prototype</a></div>
-        </div>
-      </div>
-      <div class="project-card fade-up" onclick="openModal('p6')">
-        <div class="project-preview preview-3">
-          <div class="preview-grid-overlay"></div><span class="preview-icon">🎨</span>
-        </div>
-        <div class="project-content">
-          <div class="project-type">// UI/UX DESIGN</div>
-          <div class="project-name">Mobile App UI Design</div>
-          <p class="project-desc">ออกแบบ UI/UX แอปพลิเคชันมือถือด้านจองและยืมหนังสือ Prototype ที่ใช้งานได้จริงใน
-            Figma
-          </p>
-          <div class="project-stack"><span class="stack-tag">Figma</span><span class="stack-tag">UI/UX</span><span
-              class="stack-tag">Prototyping</span></div>
-          <div class="project-links"><a href="#" class="project-link" onclick="event.stopPropagation()">↗ Figma
-              Prototype</a></div>
-        </div>
-      </div>
+      </div><!-- end projects-row2 -->
     </div>
   </section>
-
-  <section id="education">
-    <div class="section-label">Education</div>
-    <h2 class="section-title">การศึกษา <br /></h2>
-    <div class="edu-center">
-      <div class="edu-block fade-up">
-        <div class="edu-block-head">
-          <div class="edu-block-icon">🎓</div>
-          <div class="edu-block-title">ประวัติการศึกษา</div>
+  <div class="section-label">Education</div>
+  <h2 class="section-title">การศึกษา <br /></h2>
+  <div class="edu-center">
+    <div class="edu-block fade-up">
+      <div class="edu-block-head">
+        <div class="edu-block-icon">🎓</div>
+        <div class="edu-block-title">ประวัติการศึกษา</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2023 — ปัจจุบัน</div>
+          <div class="timeline-title">ปริญญาตรี วิทยาศาสตรบัณฑิต</div>
+          <div class="timeline-sub">เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</div>
+          <div class="timeline-desc">มหาวิทยาลัยราชภัฎสงขลา &nbsp;•&nbsp; GPA 3.32 &nbsp;•&nbsp;
+            คาดว่าจะสำเร็จการศึกษา 2570</div>
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2023 — ปัจจุบัน</div>
-            <div class="timeline-title">ปริญญาตรี วิทยาศาสตรบัณฑิต</div>
-            <div class="timeline-sub">เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</div>
-            <div class="timeline-desc">มหาวิทยาลัยราชภัฎสงขลา &nbsp;•&nbsp; GPA 3.32 &nbsp;•&nbsp;
-              คาดว่าจะสำเร็จการศึกษา 2570</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2020 — 2023</div>
-            <div class="timeline-title">มัธยมศึกษาตอนปลาย</div>
-            <div class="timeline-sub">สายวิทยาศาสตร์-คณิตศาสตร์</div>
-            <div class="timeline-desc">โรงเรียนนิคมควนขนุนวิทยา</div>
-          </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020 — 2023</div>
+          <div class="timeline-title">มัธยมศึกษาตอนปลาย</div>
+          <div class="timeline-sub">สายวิทยาศาสตร์-คณิตศาสตร์</div>
+          <div class="timeline-desc">โรงเรียนนิคมควนขนุนวิทยา</div>
         </div>
       </div>
     </div>
+  </div>
   </section>
 
   <section id="contact">
@@ -2072,10 +2082,10 @@
       <p class="contact-desc">กำลังมองหาโอกาสในการ <strong style="color:var(--text)">ฝึกงาน</strong> ตำแหน่ง Web
         Developer / Software developer ยินดีรับฟังทุกโอกาสที่น่าสนใจ พร้อมเรียนรู้อย่างเต็มที่!</p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#addaccdfccc6c2dfc39f9a9d9f9f98999aedcac0ccc4c183cec2c0" class="contact-link">
+        <a href="mailto:warakorn27022547@gmail.com" class="contact-link">
           <span class="contact-link-icon">✉️</span>
           <div class="contact-link-info"><span class="contact-link-label">Email</span><span
-              class="contact-link-val"><span class="__cf_email__" data-cfemail="196e786b7872766b772b2e292b2b2c2d2e597e74787075377a7674">[email&#160;protected]</span></span>
+              class="contact-link-val">warakorn27022547@gmail.com</span>
           </div>
         </a>
         <a href="tel:+66981325403" class="contact-link">
@@ -2136,7 +2146,10 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     function openPhotoModal() {
       document.getElementById('photoModal').style.display = 'flex';
@@ -2245,10 +2258,10 @@
     document.querySelectorAll('.skill-group').forEach(function (el) { obs.observe(el); });
 
     var modalData = {
-      p1: { title: 'Smart E-Commerce Platform', type: '// WEB APPLICATION', desc: 'ระบบร้านค้าออนไลน์ครบวงจรที่พัฒนาด้วย React (Front-end) และ Node.js (Back-end) โดยมีฐานข้อมูล MySQL จัดการข้อมูลสินค้า ผู้ใช้ และคำสั่งซื้อ พร้อม Dashboard วิเคราะห์ยอดขาย Real-time และระบบ Authentication ด้วย JWT', stack: ['HTML/CSS', 'JavaScript', 'Google Apps Script'], demoLink: 'https://script.google.com/macros/s/AKfycbxZxuLGvBG4lGLZ1PhJrQHuQ6BIdAOOV6mvejl8TDoxFHu-jHA5Ds-zQ8_85j5e5imaXw/exec' },
+      p1: { title: 'Smart E-Commerce Platform', type: '// ระบบขายอุปกรณ์คอมพิวเตอร์', desc: 'ระบบร้านค้าออนไลน์ครบวงจรที่พัฒนาด้วย html (Front-end) และ javascript (Back-end) โดยมีฐานข้อมูล google sheet จัดการข้อมูลสินค้า ผู้ใช้ และคำสั่งซื้อ ', stack: ['HTML/CSS', 'JavaScript', 'Google Apps Script'], demoLink: 'https://script.google.com/macros/s/AKfycbxZxuLGvBG4lGLZ1PhJrQHuQ6BIdAOOV6mvejl8TDoxFHu-jHA5Ds-zQ8_85j5e5imaXw/exec' },
       p2: { title: 'SocialAnalytics: Dashboard วิเคราะห์ยอดขาย', type: '// WEB APPLICATION', desc: 'พัฒนาระบบ Web App Dashboard สำหรับร้านค้าออนไลน์ เพื่อสรุปข้อมูลภาพรวมยอดขายรวม จำนวนออเดอร์ และวิเคราะห์สัดส่วนยอดขายตามช่องทางโซเชียลมีเดียต่างๆ', stack: ['HTML/CSS', 'JavaScript', 'Google Apps Script'], demoLink: 'https://script.google.com/macros/s/AKfycbwDIPLPbB6_w7aJUD2FGRkbkrZO7CrZwin4hnAcjp7XI93s6gRj7_QyNFv9PuJHR0Td/exec' },
       p3: { title: 'Auto Post to Instagram using n8n', type: '// n8n auto post', desc: 'ระบบอัตโนมัติสำหรับโพสต์วิดีโอไปยัง Instagram โดยใช้ n8n ช่วยจัดการ Workflow และตั้งเวลาโพสต์ ทำให้การลงคอนเทนต์เป็นไปอย่างสม่ำเสมอ รวดเร็ว และลดภาระงานซ้ำ ๆ เหมาะสำหรับ Creator และธุรกิจยุคดิจิทัล', stack: ['n8n', 'Instagram API'], demoLink: 'https://drive.google.com/file/d/1WADTvo4VKRxRBg9J3XrpDJWe5W_grPJL/view?usp=sharing' },
-      p4: { title: 'Smart Home Controller', type: '// IoT PROJECT', desc: 'ระบบควบคุมอุปกรณ์ภายในบ้านผ่าน Web Interface ด้วย Arduino และ ESP8266 สามารถเปิด-ปิดไฟ ควบคุมอุณหภูมิ และตรวจสอบข้อมูล Sensor อุณหภูมิ ความชื้น แบบ Real-time', stack: ['Arduino', 'C++', 'ESP8266', 'HTML/CSS/JS', 'MQTT'] },
+      p4: { title: 'Mobile App Development', type: '// Mobile App', desc: 'พัฒนาแอปพลิเคชันบนสมาร์ทโฟนด้วย Framework Flutter และภาษา Dart รองรับการทำงานแบบ Cross-platform ของ Android เน้นการออกแบบ UI ที่ทันสมัยสวยงาม และการทำงานที่ลื่นไหลเพื่อประสบการณ์ที่ดีของผู้ใช้งาน', stack: ['Android Studio', 'Dart'], demoLink: 'https://drive.google.com/file/d/1PLKf9GTcjL3s06EN7D4Zlp1vyxoDi7YZ/view' },
       p5: { title: 'Mobile App UI Design', type: '// ระบบยืมจองห้องสมุด', desc: 'ออกแบบ User Interface สำหรับแอปพลิเคชันค้นหาและจองหนังสือ โดยเน้นประสบการณ์ผู้ใช้ (UX) ที่ดี ช่วยให้ผู้ใช้งานสามารถค้นหาหมวดหมู่หนังสือ', stack: ['Figma', 'UI Design', 'UX Research', 'Prototyping', 'Design System'], demoLink: 'https://www.figma.com/proto/cAa2Bs8MKKivmoNps9KKeK/%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%A2%E0%B8%B7%E0%B8%A1%E0%B8%88%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94?node-id=17-499&t=OTUQGjQj3NttO0ix-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=17%3A184' },
       p6: { title: 'Mobile App UI Design', type: '// UI/UX DESIGN', desc: 'ออกแบบ UI/UX สำหรับแอปพลิเคชันมือถือด้านสุขภาพและการออกกำลังกาย ครอบคลุมตั้งแต่ User Flow, Wireframe ไปจนถึง High-fidelity Prototype ที่ Interactive ใน Figma', stack: ['Figma', 'UI Design', 'UX Research', 'Prototyping', 'Design System'] }
     };
@@ -2266,8 +2279,10 @@
       document.getElementById('modalOverlay').classList.add('open');
     }
     function closeModal(e) { if (e.target === document.getElementById('modalOverlay')) document.getElementById('modalOverlay').classList.remove('open'); }
+    function closeModal(e) { if (e.target === document.getElementById('modalOverlay')) document.getElementById('modalOverlay').classList.remove('open'); }
     function closeModalDirect() { document.getElementById('modalOverlay').classList.remove('open'); }
-    function downloadCV(e) {}
+    function downloadCV(e) { }
   </script>
 </body>
+
 </html>
